@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.githup.guu-mc</groupId>
+  <artifactId>msql-spring-boot-starter</artifactId>
+  <version>1.1</version>
+
+  <name>msql-spring-boot-starter</name>
+  <description>msql a syntax extension based on the mybatis framework.</description>
+  <url>https://github.com/guu-mc/msql-spring-boot-starter</url>
+
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>mc</name>
+      <email>279201486@qq.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:https://github.com/guu-mc/msql-spring-boot-starter.git</connection>
+    <developerConnection>scm:git:https://github.com/guu-mc/msql-spring-boot-starter.git</developerConnection>
+    <url>https://github.com/guu-mc/msql-spring-boot-starter</url>
+    <tag>master</tag>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>snapshots</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
+    <msql.version>1.4</msql.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+      <version>${spring-boot.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.github.guu-mc/msql -->
+    <dependency>
+      <groupId>com.github.guu-mc</groupId>
+      <artifactId>msql</artifactId>
+      <version>${msql.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Source -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Javadoc -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <additionalJOption>-Xdoclint:none</additionalJOption>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- GPG -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
